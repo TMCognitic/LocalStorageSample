@@ -1,0 +1,16 @@
+﻿@page "/"
+<PageTitle>Home</PageTitle>
+<EditForm Model="LoginForm" OnValidSubmit="OnClick">
+    <DataAnnotationsValidator />
+    <div class="input-group">
+        Nom : <InputText @bind-Value="LoginForm.Nom" class="form-control col-6" />
+        <ValidationMessage For="() => LoginForm.Nom" />
+    </div>
+    <div class="input-group">
+        Email : <InputText type="email" @bind-Value="LoginForm.Email" class="form-control col-6" />
+        <ValidationMessage For="() => LoginForm.Email" />
+    </div>
+    <div class="input-group">
+        <button class="btn btn-outline-success">Valider</button>
+    </div>
+</EditForm>
