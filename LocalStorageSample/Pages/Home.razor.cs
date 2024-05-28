@@ -7,10 +7,10 @@ namespace LocalStorageSample.Pages
 {
     public partial class Home
     {
-        private LoginForm LoginForm { get; set; }
+        private LoginForm? LoginForm { get; set; }
 
         [Inject]
-        private LocalStorageManager LocalStorageManager { get; set; }
+        private LocalStorageManager LocalStorageManager { get; set; } = default!;
 
         protected override void OnInitialized()
         {

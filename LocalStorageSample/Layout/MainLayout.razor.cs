@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace LocalStorageSample.Layout
 {
-    public partial class MainLayout
+    public partial class MainLayout : IDisposable
     {
         private User? _user;
 
@@ -43,6 +43,12 @@ namespace LocalStorageSample.Layout
         private async Task Disconnect()
         {
             await LocalStorageManager.Set("User", (User?)null);
+        }
+
+        public void Dispose()
+        {
+            LocalStorageManager.OnLocalStorageChanged -= OnLocalStorageChanged;
+            GC.SuppressFinalize(this);
         }
     }
 }
